@@ -10,13 +10,13 @@ return new class extends Migration {
      */
     public function up(): void
     {
-        Schema::create('_student', function (Blueprint $table) {
+        Schema::create('_students', function (Blueprint $table) {
             $table->id();
             $table->string('name');
-            $table->string('email');
-            $table->string('phone');
-            $table->string('address');
-            $table->string('gender');
+            $table->string('email')->unique('email');
+            $table->string('phone')->nullable();
+            $table->text('address');
+            $table->enum('gender', ['Male', 'Female']);
             $table->string('department');
             $table->boolean('parttime')->default(false);
             $table->date('joining_date');

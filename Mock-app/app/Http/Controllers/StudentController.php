@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 use Illuminate\Http\Request;
+use App\Models\_student;
 class StudentController extends Controller
 {
     public function viewForm()
@@ -10,6 +11,8 @@ class StudentController extends Controller
     }
     public function addStudent(Request $request)
     {
-        dd($request->all());
+        //dd($request->all());
+        _student::create($request->all());
+        ;
     }
 }
